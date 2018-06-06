@@ -1,0 +1,15 @@
+pipeline{ 
+agent any 
+
+
+stages{
+stage('build') {
+steps {
+sh 'java -d . src/*.java'
+sh 'echo Main-Class: Regtangulator > MANIFEST.MF'
+sh 'jar -cvm MANIFEST .MF rectangle.jar *.class'
+}
+}
+}
+}
+
